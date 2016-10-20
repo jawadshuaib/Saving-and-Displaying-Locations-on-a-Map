@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fpK-DS-V3p">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Places-->
+        <scene sceneID="zhc-vh-b4Q">
+            <objects>
+                <tableViewController id="hEf-GC-meW" customClass="PlacesVC" customModule="Saving_Places_on_a_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="11b-mx-EFh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="JUs-78-bY8">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JUs-78-bY8" id="Hvj-1T-pGP">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hEf-GC-meW" id="FS9-9E-n1N"/>
+                            <outlet property="delegate" destination="hEf-GC-meW" id="FQa-a1-SG9"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="My Places" id="1oj-GL-Eul">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="KqO-tK-dgC">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="MapVC" id="kj4-h3-5Wa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myTableView" destination="11b-mx-EFh" id="4yr-87-hz0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3QL-XO-VeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-555" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wuI-G9-nia">
+            <objects>
+                <navigationController id="fpK-DS-V3p" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rAO-jF-8ep">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hEf-GC-meW" kind="relationship" relationship="rootViewController" id="JrO-dc-Zhs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2B-h3-OO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1370" y="135"/>
+        </scene>
+        <!--World Map-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="World Map" id="BYZ-38-t0r" customClass="MapVC" customModule="Saving_Places_on_a_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jev-97-DfH"/>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jev-97-DfH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6fd-HZ-Yyx"/>
+                            <constraint firstAttribute="trailing" secondItem="Jev-97-DfH" secondAttribute="trailing" id="9WW-0l-uZP"/>
+                            <constraint firstItem="Jev-97-DfH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eBD-eu-kuU"/>
+                            <constraint firstAttribute="bottom" secondItem="Jev-97-DfH" secondAttribute="bottom" id="tCX-hh-lLU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myMapView" destination="Jev-97-DfH" id="zG1-eP-x55"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344.80000000000001" y="134.48275862068968"/>
+        </scene>
+    </scenes>
+</document>
